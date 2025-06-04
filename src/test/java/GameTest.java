@@ -59,19 +59,18 @@ class GameTest {
         assertThat(result.getBalls()).isEqualTo(balls);
     }
 
-    //TODO 1.   2 Strikes, 0 Ball 테스트 코드 추가 후, Strikes를 구하는 코드 개발하기
-
     @Test
-    void return2S0B() {
+    void return2Strike0Ball() {
         generateQuestion("123");
         assetMatchedNumber(game.guess("124"), false, 2, 0);
     }
 
 
     //TODO 2.   1 Stirkes, 2 Ball 테스트 코드 추가 후, Balls을 구하는 코드 구현
-//
-//    @Test
-//    void return1S2B() {
-//    }
+    @Test
+    void return1Strike2Ball() {
+        generateQuestion("123");
+        assetMatchedNumber(game.guess("132"), false, 1, 2);
+    }
 
 }
