@@ -6,21 +6,24 @@ public class Game {
         if (guessNumber.equals(question)) {
             return new GuessResult(true, 3, 0);
         } else {
-            int ballCount = 0;
-            if (guessNumber.charAt(0) == question.charAt(1)
-                    || guessNumber.charAt(0) == question.charAt(2)
-            ) ballCount++;
-
-            if (guessNumber.charAt(1) == question.charAt(0)
-                    || guessNumber.charAt(1) == question.charAt(2)
-            ) ballCount++;
-
-            if (guessNumber.charAt(2) == question.charAt(0)
-                    || guessNumber.charAt(2) == question.charAt(1)
-            ) ballCount++;
-
-            return new GuessResult(false, getStrikeCount(guessNumber), ballCount);
+            return new GuessResult(false, getStrikeCount(guessNumber), getBallCount(guessNumber));
         }
+    }
+
+    private int getBallCount(String guessNumber) {
+        int ballCount = 0;
+        if (guessNumber.charAt(0) == question.charAt(1)
+                || guessNumber.charAt(0) == question.charAt(2)
+        ) ballCount++;
+
+        if (guessNumber.charAt(1) == question.charAt(0)
+                || guessNumber.charAt(1) == question.charAt(2)
+        ) ballCount++;
+
+        if (guessNumber.charAt(2) == question.charAt(0)
+                || guessNumber.charAt(2) == question.charAt(1)
+        ) ballCount++;
+        return ballCount;
     }
 
     private int getStrikeCount(String guessNumber) {
