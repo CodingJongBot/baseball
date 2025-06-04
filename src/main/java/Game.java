@@ -3,11 +3,16 @@ public class Game {
 
     public GuessResult guess(String guessNumber) {
         assetIllegalArgument(guessNumber);
-        if (guessNumber.equals(question)){
-            return new GuessResult(true,3,0);
-        }
-        else{
-            return new GuessResult(false,0,0);
+        if (guessNumber.equals(question)) {
+            return new GuessResult(true, 3, 0);
+        } else {
+            int strikeCount = 0;
+            for (int i = 0; i < guessNumber.length(); i++) {
+                if (guessNumber.charAt(i) == question.charAt(i)) {
+                    strikeCount++;
+                }
+            }
+            return new GuessResult(false, strikeCount, 0);
         }
     }
 
