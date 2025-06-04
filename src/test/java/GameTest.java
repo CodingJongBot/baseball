@@ -17,21 +17,21 @@ class GameTest {
         assertNotNull(game);
     }
 
+    private void assertIllegalArgument(String guessNumber) {
+        try {
+            game.guess(guessNumber);
+            fail();
+        } catch (IllegalArgumentException e) {
+        }
+    }
+
     @Test
     void throwIllegalArgumentExceptionInvalidInput() {
         assertIllegalArgument(null);
         assertIllegalArgument("12");
         assertIllegalArgument("1234");
+        assertIllegalArgument("12s");
     }
 
-
-        private void assertIllegalArgument(String guessNumber ) {
-        try{
-            game.guess(guessNumber);
-            fail();
-        }
-        catch (IllegalArgumentException e) {
-        }
-    }
 
 }

@@ -4,8 +4,14 @@ public class Game {
             throw new IllegalArgumentException();
         }
 
-        if(guessNumber.length() !=3){
+        if (guessNumber.length() != 3) {
             throw new IllegalArgumentException();
+        }
+
+        for (char number : guessNumber.toCharArray()) {
+            if (number < '0' || number > '9') {
+                throw new IllegalArgumentException();
+            }
         }
     }
 }
