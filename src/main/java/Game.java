@@ -6,7 +6,9 @@ public class Game {
         if (guessNumber.equals(question)){
             return new GuessResult(true,3,0);
         }
-        return null;
+        else{
+            return new GuessResult(false,0,0);
+        }
     }
 
     private static void assetIllegalArgument(String guessNumber) {
