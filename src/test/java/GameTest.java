@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
@@ -35,4 +36,13 @@ class GameTest {
     }
 
 
+    @Test
+    void returnSolvedResultIfMatchedNumber() {
+        game.question = "123";
+        GuessResult result = game.guess("123");
+        assertThat(result).isNotNull();
+        assertThat(result.solved).isEqualTo(true);
+        assertThat(result.strikes).isEqualTo(3);
+        assertThat(result.balls).isEqualTo(0);
+    }
 }

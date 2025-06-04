@@ -1,6 +1,12 @@
 public class Game {
-    public void guess(String guessNumber) {
+    public String question;
+
+    public GuessResult guess(String guessNumber) {
         assetIllegalArgument(guessNumber);
+        if (guessNumber.equals(question)){
+            return new GuessResult(true,3,0);
+        }
+        return null;
     }
 
     private static void assetIllegalArgument(String guessNumber) {
