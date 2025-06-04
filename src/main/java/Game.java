@@ -6,14 +6,18 @@ public class Game {
         if (guessNumber.equals(question)) {
             return new GuessResult(true, 3, 0);
         } else {
-            int strikeCount = 0;
-            for (int i = 0; i < guessNumber.length(); i++) {
-                if (guessNumber.charAt(i) == question.charAt(i)) {
-                    strikeCount++;
-                }
-            }
-            return new GuessResult(false, strikeCount, 0);
+            return new GuessResult(false, getStrikeCount(guessNumber), 0);
         }
+    }
+
+    private int getStrikeCount(String guessNumber) {
+        int strikeCount = 0;
+        for (int i = 0; i < guessNumber.length(); i++) {
+            if (guessNumber.charAt(i) == question.charAt(i)) {
+                strikeCount++;
+            }
+        }
+        return strikeCount;
     }
 
     private static void assetIllegalArgument(String guessNumber) {
