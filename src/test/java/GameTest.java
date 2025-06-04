@@ -65,8 +65,6 @@ class GameTest {
         assetMatchedNumber(game.guess("124"), false, 2, 0);
     }
 
-
-    //TODO 2.   1 Stirkes, 2 Ball 테스트 코드 추가 후, Balls을 구하는 코드 구현
     @Test
     void return1Strike2Ball() {
         generateQuestion("123");
