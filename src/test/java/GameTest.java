@@ -1,21 +1,25 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
+    Game game;
 
+    @BeforeEach
+    void setUp() {
+        game = new Game();
+    }
 
     @Test
     void name() {
-        Game game = new Game();
         assertNotNull(game);
     }
 
     @Test
     void throwExceptionWhenInputIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Game game = new Game();
             game.guess(null);
         });
     }
